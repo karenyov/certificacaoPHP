@@ -1,1 +1,1 @@
-# Capítulo 2 - Strings	e	padrões
+# Capítulo 3 - Strings	e	padrões
