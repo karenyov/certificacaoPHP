@@ -207,13 +207,13 @@ print	(~7); // -8
 > http://php.net/manual/pt_BR/language.operators.bitwise.php
 
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11- Facilitando a vida - 1" width="150">
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11-%20Facilitando%20a%20vida%20-%201.png" width="150">
  
 ```
 print	(5	&	2);
 ```
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11- Facilitando a vida - 2" width="150">
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11-%20Facilitando%20a%20vida%20-%202.png" width="150">
  
 Podemos	 ver	 que,	 no	 resultado	 obtido,	 temos	 duas	 linhas	 na
 tabela	 correspondentes	 ao	 valor	 5	 e	 ao	 valor	 2.	 Porém,	 não
@@ -227,7 +227,7 @@ nenhum	bit	ativo	em	ambos.
 print	(5	|	2);
 ```
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11- Facilitando a vida - 3" width="150">
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11-%20Facilitando%20a%20vida%20-%203.png" width="150">
  
 Se	você	conseguiu	chegar	ao	número	7,	está	totalmente	correto.
 
@@ -235,7 +235,7 @@ Se	você	conseguiu	chegar	ao	número	7,	está	totalmente	correto.
 print	(3	^	2);
 ```
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11- Facilitando a vida - 4" width="150">
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11-%20Facilitando%20a%20vida%20-%204.png" width="150">
  
  
 Aplicando	 o	 operador	 XOR,	 temos	 como	 resultado	 1.
