@@ -8,4 +8,4 @@ Preparando para a certificação PHP
 
 ## Capítulos
 
-- [Capítulo 2 - Entendendo o Básico do PHP](https://github.com/user/repo/blob/branch/other_file.md)
+- [Capítulo 2 - Entendendo o Básico do PHP](https://github.com/karenyov/certificacaoPHP/blob/main/cap/2-%20Cap.md)
