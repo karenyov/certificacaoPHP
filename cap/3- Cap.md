@@ -190,5 +190,5 @@ print 'Iguais	!';
 }
 ```
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/2.11-%20Facilitando%20a%20vida%20-%202.png" width="350">
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/3.3%20-%20Strings%20-%201.png" width="400">
  
