@@ -356,4 +356,4 @@ print	implode(',',	$categorias);	//	a,b,c
 
 ## 3.9 FORMATANDO	 SAÍDA	 COM	 A	 FAMÍLIA *PRINTF
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/3.3%20-%20Strings%20-%201.png" width="500">
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/3.9%20-%20Strings%20-%201.png" width="500">
