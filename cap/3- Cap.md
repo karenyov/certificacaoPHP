@@ -357,3 +357,167 @@ print	implode(',',	$categorias);	//	a,b,c
 ## 3.9 FORMATANDO	 SAÍDA	 COM	 A	 FAMÍLIA *PRINTF
 
 <img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/3.9%20-%20Strings%20-%201.png" width="500">
+
+```
+printf('Certificação	%s	PHP	%s',	'Zend',	'5.5');
+
+
+printf('Certificação	%2$s	PHP	%1$s',	'Zend',	'5.5');
+
+
+printf('Meu nome é %2$s %1$s', 'Marabesi', 'Matheus'); // Meu nome é Matheus Marabesi
+
+printf('PHP %f', 5.5); //5.500000
+
+printf('PHP	%.2f',	5.5);	//	PHP	5.50
+
+printf('PHP	%.1f',	5.5);	//	PHP	5.5
+
+printf('%s	%s',	'Olá',	'PHP'); // Olá	 PHP	
+
+sprintf('%s	%s',	'Olá',	'PHP'); // nada é exibido
+
+echo sprintf('%s	%s',	'Olá',	'PHP');
+
+vprintf('Certificação	%s	%s',	[
+'PHP',
+'5.5'
+]);
+
+
+vsprintf('Essa	%s	irá	ser	%s	e	não	%s',	[
+'string',
+'retornada',
+'exibida'
+]);
+
+echo	vsprintf('Utilizando	%s	conseguimos	%s	a	%s	formatada',	[
+'echo',
+'exibir',
+'string'
+]);
+
+
+$file	=	fopen('meu-arquivo.txt',	'w+');
+fprintf($file,	'Olá	%s	',	'PHP');
+
+
+
+$file	=	fopen('meu-arquivo.txt',	'w+');
+fprintf($file,	'Olá	%s	',	[
+'PHP']);
+
+// Irá produzir Olá Array , NOTICE  e escreverá Array onde se deseja substituir as variáveis
+
+
+```
+
+## 3.10 EXPRESSÕES REGULARES
+
+### POSIX e PCRE
+> O padrão POSIX foi descontinuado na versão 5.3 do PHP.
+
+
+### PCRE
+
+#### preg_match
+Procura um padrão de texto na string.
+
+```
+$texto	=	'Livro	de	certificação	PHP';
+$padrao	=	'/Livro/';
+if	(preg_match($padrao,	$texto))	{
+	print 'Padrão	encontrado';
+}
+
+// Padrão	encontrado
+
+```
+
+```
+$texto	=	'Livro	de	certificação	PHP';
+$padrao	=	'/Livro/';
+preg_match($padrao,	$texto,	$ocorrencias);
+print_r($ocorrencias);
+
+/*
+Array
+(
+[0] =>	Livro
+)
+
+*/
+```
+
+
+#### preg_match_all
+
+> [Link](https://www.php.net/manual/pt_BR/function.preg-match.php).
+
+```
+$texto	=	'Livro	de	certificação	PHP,	outro	Livro';
+$padrao	=	'/Livro/';
+preg_match($padrao,	$texto,	$ocorrencias);
+print_r($ocorrencias);
+
+/*
+Array
+(
+[0] =>	Livro
+)
+
+*/
+```
+
+```
+preg_match_all($padrao,	$texto,	$ocorrencias);
+
+Array
+(
+[0] =>	Array
+(
+[0] =>	Livro
+[1] =>	Livro
+	)
+)
+```
+
+#### preg_replace
+> [Link](https://www.php.net/manual/en/function.preg-replace.php).
+
+Além de buscar o padrão na string, ele permite trocar os valores de uma expressào regular.
+
+```
+$texto	=	'Vamos	aplicar	uma	expressão	aqui!';
+print	preg_replace('/!/',	'?',	$texto);
+
+
+print	preg_replace(['/aqui/',	'/!/'],	'?',	$texto); //Vamos	aplicar	uma	expressão	??
+
+
+$texto	=	'O	evento	será	dia	11/12	não	perca	a	reprize	no	dia	22/10';
+print	preg_replace('/\/\d{2}/',	'${1}',	$texto);
+
+//O	evento	será	dia	11	não	perca	a	reprize	no	dia	22
+```
+
+```
+$texto	=	'!Vamos	aplicar	uma	expressão	aqui!';
+print	preg_replace('/!/',	'',	$texto,	1);
+
+//Vamos	aplicar	uma	expressão	aqui!
+```
+
+```
+$texto	=	'!Vamos	aplicar	uma	expressão	aqui!';
+$total	=	0;
+preg_replace('/!/',	'',	$texto,	-1,	$total);
+print $total; //2
+
+```
+
+## 3.11	STRINGS	E	MAIS	STRINGS
+
+
+
+
