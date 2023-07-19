@@ -190,5 +190,170 @@ print 'Iguais	!';
 }
 ```
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/3.3%20-%20Strings%20-%201.png" width="400">
- 
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/3.3%20-%20Strings%20-%201.png" width="450">
+
+> Caso	você	precise	desse	mesmo	comportamento,	mas	precise	ser levado	 em	 consideração	 letras	 maiúsculas	 e	 minúsculas, utilize	 a função		strcmp	.
+
+```
+$str1	 =	 "livroABC";
+$str2	=	"livroABC";
+var_dump(strcmp($str1,	$str2)); // 0
+
+
+$str1	 =	 "livroabc";
+$str2	=	"livroABC";
+var_dump(strcmp($str1,	$str2));
+
+$str1	 =	 "livroABCDR";
+$str2	=	"livroABCD";
+var_dump(strcmp($str1,	$str2)); // 1
+
+
+$str1	 =	 "livroABCD";
+$str2	=	"livroABCDR";
+var_dump(strcmp($str1,	$str2)); // -1
+
+```
+
+## 3.4	SIMILARIDADE ENTRE STRINGS
+
+### similiar_text
+> o número	 de	 caracteres	 que	 existem	 em	 ambas	 as	 strings,	 que	 nesse
+caso	é	19,	pois	a	parte	correspondente	em	ambas	as	strings	é	o	texto
+Certificação	PHP	.	Repare	que	existe	um	espaço	em	branco	antes
+da	palavra		Certificação	,	por	isso	o	resultado	em	questão	é	19,	e
+não	18.
+
+```
+$string1	=	'Av.	Livro	de	Certificação	PHP';
+$string2	=	'Rua,	Certificação	PHP';
+print	similar_text($string1,	$string2); // 19
+
+```
+
+```
+$porcentagem	=	0; // Esse	 valor	 é	 passado	 por	 referência
+$string1	=	'Av.	Livro	de	Certificação	PHP';
+$string2	=	'Rua,	Certificação	PHP';
+print	similar_text($string1,	$string2,	$porcentagem); // 70.37037037037
+```
+
+### levenshtein
+> retorna	qual	o	número de	 caracteres	 que	 devemos	 substituir	 para	 possuir	 duas	 strings idênticas.  [Link](http://php.net/manual/en/function.levenshtein.php).
+
+```
+$string1	=	'Av.	Livro	de	Certificação	PHP';
+$string2	=	'Rua,	Certificação	PHP';
+print	levenshtein($string1,	$string2);
+```
+
+## 3.5	CONTANDO CARACTERES
+
+```
+print	strlen('1\n2'); // 4
+
+print	strlen("1\n2\t"); // 4  (formatação \n e \t , 1 e 2)
+```
+
+## 3.6	CONTANDO PALAVRAS
+
+### str_word_count
+```
+$nome	=	'Zend	Certified	Engineer';
+print	str_word_count($nome);	//3
+```
+
+## 3.7 FUNÇÕES FONÉTICAS
+
+### SOUNDEX
+> Obs: o  algoritmo	 gera	 uma chave	 	soundex		 ao	 receber	 a	 nossa	 palavra. [Link](https://www.php.net/manual/pt_BR/function.soundex.php).
+```
+$str1	=	soundex("Michael	Douglas	Barbosa	Araujo");
+$str2	=	soundex("Michel	Douglas	Barbosa	Araújo");
+if($str1	==	$str2)	{
+echo 'oi';
+}
+
+$str1	=	soundex("Michael	Douglas	Barbosa	Araujo");
+$str2	=	soundex("Michel	Douglas	Barbosa	Araújo");
+var_dump($str1); // M243
+var_dump($str2); // M243
+
+
+$str1	=	soundex("Michael	Douglas	Barbosa	Araujo");
+$str2	=	soundex("Michel	Douglas	Barbosa	Araújo");
+if($str1	==	"M243"	&&	$str2	=	"M243")	{
+echo "OK";
+}
+
+
+$str1	=	soundex("Michael	Douglas	Barbosa	Araujo");
+$str2	=	soundex("Michel	Douglas	Barbosa	Araújo");
+if(($str1	==	$str2)	==	"M243")	{
+echo "OK";
+}
+
+```
+
+### metaphone
+> É	 mais	 precisa	 que	 a	 função soundex	. [Link](https://www.php.net/manual/pt_BR/function.metaphone.php).
+```
+$str1	=	metaphone("Michael	Douglas	Barbosa	Araujo");
+$str2	=	metaphone("Michel	Douglas	Barbosa	Araújo");
+var_dump($str1);
+```
+
+## 3.8 TRANSFORMANDO STRINGS
+
+### explode
+> Ao	 usarmos	 o	 terceiro	 parâmetro	 da	 função	 explode, devemos nos atentar ao	 seu comportamento,	 pois esperamos que	o	retorno	do	array	seja	limitado,	e	não	que	seja	limitado àsua	aplicação	na	string. [Link](https://www.php.net/manual/pt_BR/function.explode.php).
+```
+$parametros	=	'1,2,3,4';
+$array	=	explode(',',	$parametros);
+
+$_GET['categoria']	=	'caderno-estojo-caneta-borracha';
+$categoria	=	$_GET['categoria'];
+$categorias	=	explode('-',	$categoria);
+
+
+$_GET['categoria']	=	'caderno-estojo-caneta-borracha';
+$categoria	=	$_GET['categoria'];
+$categorias	=	explode('-',	$categoria,	2);
+
+/*
+Array
+(
+[0] =>	caderno
+[1] =>	estojo,caneta,borracha
+)
+*/
+```
+
+### implode
+> A	função	implode	não	possui	um terceiro	 parâmetro. [Link](https://www.php.net/manual/pt_BR/function.implode.php).
+```
+$categorias	=	array(
+'estojo',
+'caneta',
+'borracha'
+);
+print	implode(',',	$categorias);
+
+$categorias	=	array(
+'estojo'	 	=>	'a',
+'caneta'	 	=>	'b',
+'borracha'	=>	'c'
+);
+print	implode(',',	$categorias);	//	a,b,c
+
+$categorias	=	array(
+	0	=>	'a',
+	1	=>	'b',
+	2	=>	'c'
+);
+print	implode(',',	$categorias);	//	a,b,c
+```
+
+## 3.9 FORMATANDO	 SAÍDA	 COM	 A	 FAMÍLIA *PRINTF
+
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/3.3%20-%20Strings%20-%201.png" width="500">
