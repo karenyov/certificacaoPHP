@@ -134,4 +134,4 @@ foreach	($elementos as $no)	{
 
 ``` 
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/3.9%20-%20Strings%20-%201.png" width="500">
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/4.4%20-%20Xpath%20-%201.png" width="500">
