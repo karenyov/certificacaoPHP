@@ -375,11 +375,43 @@ print file_get_contents('php://inout');
 
 ### 4.11 DATE
 
+> [Link](http://php.net/manual/pt_BR/function.date.php).
+
 ```
 print date('d/m/Y');
 
+print	date('d/m/Y',	time()	+	86400);	//	adiciona	um	dia	na	data	at
+ual
+
+
 ```
 
 
-<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/.png" width="450">
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/4.11%20-%20Date%20-%201.png" width="450">
 
+### 4.12 A	CLASSE	DATETIME
+
+```
+$data	=	new	DateTime();
+
+ATOM	=	"Y-m-d\TH:i:sP"	;
+COOKIE	=	"l,	d-M-Y	H:i:s	T"	;
+ISO8601	=	"Y-m-d\TH:i:sO"	;
+RFC822	=	"D,	d	M	y	H:i:s	O"	;
+RFC850	=	"l,	d-M-y	H:i:s	T"	;
+RFC1036	=	"D,	d	M	y	H:i:s	O"	;
+RFC1123	=	"D,	d	M	Y	H:i:s	O"	;
+RFC2822	=	"D,	d	M	Y	H:i:s	O"	;
+RFC3339	=	"Y-m-d\TH:i:sP"	;
+RSS	=	"D,	d	M	Y	H:i:s	O"	;
+W3C	=	"Y-m-d\TH:i:sP"	;
+
+
+```
+
+```
+$hoje			=	new	\DateTime('now');
+$amanha	=	$hoje->add(new	\DateInterval('P1D'));
+```
+
+### 4.13 DATETIMEIMMUTABLE
