@@ -415,3 +415,123 @@ $amanha	=	$hoje->add(new	\DateInterval('P1D'));
 ```
 
 ### 4.13 DATETIMEIMMUTABLE
+
+> [Link](http://php.net/manual/en/class.datetimeimmutable.php).
+
+<img src="https://github.com/karenyov/certificacaoPHP/blob/main/img/4.13%20-%20Datetime%20-%201.png" width="450">
+
+
+```
+$hoje			=	new	\DateTime('2015-10-10');
+$amanha	=	$hoje->add(new	\DateInterval('P1D'));
+print $amanha;	//	2015-10-11
+
+$hoje			=	new	\DateTime('2015-10-10');
+$amanha	=	$hoje->add(new	\DateInterval('P1D'));
+print $hoje;	//	2015-10-11
+
+```
+
+
+```
+$hoje			=	new	\DateTimeImmutable('2015-10-10');
+$amanha	=	$hoje->add(new	\DateInterval('P1D'));
+print $hoje;				//	2015-10-10
+print $amanha;		//	2015-10-11
+
+```
+
+
+### 4.14 DEFININDO	DATA
+
+```
+$dataDeNascimento	=	new	DateTime('1993-07-02');
+$dataDeNascimento->setDate(1993,	7,	2);
+print $dataDeNascimento->format('d/m/Y');	//	02/07/1993
+
+$dataDeNascimento	=	new	DateTime();
+$dataDeNascimento->setTime(10,	45,	10);
+print $dataDeNascimento->format('h:i:s');	//10:45:10
+
+$dataDeAniversario	=	new	DateTime('1993-07-02');
+print $dataDeAniversario->format('d/m/Y');	//	02/07/1993
+$dataDeAniversario->setDate(1990,	07,	07);
+print $dataDeAniversario->format('d/m/Y');	//	07/07/1990
+
+```
+
+
+```
+$dataDeAniversario	=	new	DateTimeImmutable('1993-07-02');
+print $dataDeAniversario->format('d/m/Y');	//	02/07/1993
+$dataDeAniversario->setDate(1990,	07,	07);
+print $dataDeAniversario->format('d/m/Y');	//	02/07/1993
+
+$dataDeAniversario	=	new	DateTimeImmutable('1993-07-02	10:10:10');
+print $dataDeAniversario->format('d/m/Y	h:i:s');	//	02/07/1993	10:
+10:10
+//	Vamos	tentar	modificar	agora	a	data	e	a	hora	definidas	no	momen
+to	da	construção	do	objeto
+$dataDeAniversario->setDate(1990,	07,	07);
+$dataDeAniversario->setTime(12,	10,	57);
+//	A	data	e	hora	não	se	modificam
+print $dataDeAniversario->format('d/m/Y	h:i:s');	//	02/07/1993	10:
+10:10
+
+
+```
+
+#### sub
+
+```
+$hoje	=	new	DateTime('2015-10-10');
+$ontem	=	$hoje->sub(new	DateInterval('P1D'));
+print $ontem->format('Y-m-d');	//2015-10-09
+```
+
+#### modify
+
+```
+$hoje	=	new	DateTime('2015-10-10');
+$ontem	=	$hoje->modify('-1	day');
+print $ontem->format('Y-m-d');	//2015-10-09
+Agora	vamos	adicionar	um	período:
+$hoje	=	new	DateTime('2015-10-10');
+$ontem	=	$hoje->modify('+1	day');
+print $ontem->format('Y-m-d');	//2015-10-11
+
+```
+
+### 4.15	TIME	ZONE
+
+> [Link](http://php.net/manual/en/class.datetimezone.php).
+
+> date.timezone	=	America/Sao_Paulo
+
+```
+$saoPaulo	=	new	DateTime('now',	new	DateTimeZone('America/Sao_Paul
+o'));
+print $saoPaulo->format('d/m/Y	H:m:s');
+$auckland	=	new	DateTime('now',	new	DateTimeZone('Pacific/Auckland'
+));
+print $auckland->format('d/m/Y	H:m:s');
+
+print $saoPaulo->getTimeZone()->getName();	//	America/Sao_Paulo
+print $auckland->getTimeZone()->getName();	//	Pacific/Auckland
+
+
+$padrao	=	new	DateTime();
+print $padrao->getTimeZone()->getName();	//	Retorna	a	opção	defini
+da	em	date.timezone	no	php.ini
+
+```
+
+### 4.16	CREATEFROMFORMAT
+
+> Lembre-se:	 	DateTime		 e	 	DateTimeImmutable		 possuem	 os mesmos	métodos,	porém	comportamentos	diferentes.
+
+```
+
+$meuFormato	=	\DateTime::createFromFormat('d/m/Y',	'02/07/1993');
+print $meuFormato->format('Y-m-d');	//	1993-07-02
+```
